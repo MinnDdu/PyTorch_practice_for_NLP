@@ -18,7 +18,7 @@ import nltk
 # 토큰화(Tokenization) - Text를 Token으로 나누는 과정
 # 토큰화의 기준은 저마다 다름
 
-nlp = spacy.load('en_core_web_sm') # BTW spaCy 오류로 tensorflow의 __init__.py 481 번째 줄 _keras._load() -> keras._load()로 바꿈.. 참고
+nlp = spacy.load('en_core_web_sm') # BTW, spaCy 오류로 tensorflow의 __init__.py 481 번째 줄 _keras._load() -> keras._load()로 바꿈.. 참고
 text = "Mary, don't slap the green witch"
 print([str(token) for token in nlp(text.lower())])
 
@@ -75,7 +75,14 @@ print('--------------------------------')
 doc = nlp(u"Mary slaped the green witch.")
 for token in doc.noun_chunks:
     print(f'{token} -> {token.label_}')
+print('--------------------------------')
 
-# 2.7 
+# 2.7 문장 구조
+# 구 단위를 식별하는 부분 구문 분석(Shallow Parsing)과 달리 '구 사이의 관계'를 파악하는 작업을 구문 분석(Parsing)이라고 함
+# 구문 분석 트리 (Parse Tree)는 문장 안의 문법 요소가 계층적으로 어떻게 관련되는지 보여줌 - 구성 구문 분석(Constituent Parsing)
+#                                                                       - 의준 구문 분석(Dependancy Parsing)
 
+# 2.8 단어 의미와 의미론
+# 단어에는 의미가 하나 이상 있음. 단어가 나태내는 각각의 뜻을 단어의 의미(Sense) 라고 지칭함
+# 단어 의미는 문맥으로 결정될 수도 있음. -> NLP에 적용된 첫 번째 준지도 학습(Semi-Supervised Learning) -> 단어 의미를 자동으로 찾는 일 이었음
 
