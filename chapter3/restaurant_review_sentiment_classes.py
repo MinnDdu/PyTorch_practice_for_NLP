@@ -150,7 +150,7 @@ class Vocabulary(object):
         if token_to_idx is None:
             token_to_idx = {}
         self._token_to_idx = token_to_idx
-        self._idx_to_token = {idx:token for token, idx in token_to_idx.itmes()}
+        self._idx_to_token = {idx:token for token, idx in token_to_idx.items()}
 
         self._add_unk = add_unk
         self._unk_token = unk_token
@@ -208,8 +208,8 @@ class Vocabulary(object):
             UNK 토큰을 사용하려면 (Vocabulary에 추가하기 위해)
             `unk_index`가 0보다 커야 합니다.
         """
-        if self.unk_index >= 0:
-            return self._token_to_idx.get(token, self.unk_index)
+        if self._unk_index >= 0:
+            return self._token_to_idx.get(token, self._unk_index)
         else:
             return self._token_to_idx.get(token)
 

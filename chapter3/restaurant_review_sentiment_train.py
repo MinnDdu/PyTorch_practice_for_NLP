@@ -33,7 +33,7 @@ args = Namespace(
     # 날짜와 경로 정보
     frequency_cutoff=25,
     model_state_file='model.pth',
-    review_csv='data/reviews_with_splits_lite.csv',
+    review_csv='/Users/minsoo/Desktop/CS_practice/PyTorch_practice_for_NLP/chapter3/data/reviews_with_splits_lite.csv',
     # review_csv='data/yelp/reviews_with_splits_full.csv',
     save_dir='/Users/minsoo/Desktop/CS_practice/PyTorch_practice_for_NLP/chapter3/model_storage/yelp/',
     vectorizer_file='vectorizer.json',
@@ -167,17 +167,17 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer=optimizer,
 train_state = make_train_state(args)
 
 
-epoch_bar = tqdm.notebook.tqdm(desc='training routine', 
+epoch_bar = tqdm.tqdm(desc='training routine', 
                           total=args.num_epochs,
                           position=0)
 
 dataset.set_split('train')
-train_bar = tqdm.notebook.tqdm(desc='split=train',
+train_bar = tqdm.tqdm(desc='split=train',
                           total=dataset.get_num_batches(args.batch_size), 
                           position=1, 
                           leave=True)
 dataset.set_split('val')
-val_bar = tqdm.notebook.tqdm(desc='split=val',
+val_bar = tqdm.tqdm(desc='split=val',
                         total=dataset.get_num_batches(args.batch_size), 
                         position=1, 
                         leave=True)

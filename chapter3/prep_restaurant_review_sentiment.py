@@ -50,7 +50,7 @@ for i, item_list in sorted(by_rating.items()):
     for item in item_list[:n_train]:
         item['split'] = 'train'
     for item in item_list[n_train:n_train + n_val]:
-        item['split'] = 'valid'
+        item['split'] = 'val'
     for item in item_list[n_train + n_val: n_train + n_val + n_test]:
         item['split'] = 'test'
 
